@@ -1,0 +1,17 @@
+.video-cover {
+  width: 11.5rem;
+}
+
+.video-side-card {
+  display: flex;
+  flex-direction: row;
+  max-width: 30rem;
+  padding: 5px;
+}
+.video-side-card:hover {
+  cursor: pointer;
+}
+
+.video-side-card > div {
+  margin-left: 15px;
+}

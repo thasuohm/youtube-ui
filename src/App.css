@@ -1,0 +1,26 @@
+:root {
+  --f-title: 1.5rem;
+  --f-normal: 1rem;
+  --f-m: 600;
+  --content-width: 80%;
+  --light-white: #d3d3d3;
+  --dark-gray: #a2a2a2;
+  --gray-dark-theme: #353535;
+  --black-dark-theme: #202020;
+  --red: #cc0000;
+}
+
+.page-container {
+  position: absolute;
+  width: 100%;
+  height: max-content;
+}
+
+.dark-mode-background {
+  background-color: #181818;
+  color: white;
+}
+
+.hover-pointer:hover {
+  cursor: pointer;
+}
