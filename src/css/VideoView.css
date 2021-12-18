@@ -268,3 +268,12 @@
 .dark-mode-font {
   color: white;
 }
+
+.flex-center {
+  display: flex;
+  align-content: center;
+}
+
+.comments .flex-center > * {
+  margin-left: 0.45rem;
+}

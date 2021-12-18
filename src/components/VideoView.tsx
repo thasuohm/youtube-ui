@@ -14,6 +14,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 import CropSquareIcon from "@mui/icons-material/CropSquare";
 import VolumeDownIcon from "@mui/icons-material/VolumeDown";
+import SortIcon from "@mui/icons-material/Sort";
 
 type PropType = {
   darkMode: Boolean;
@@ -26,7 +27,7 @@ function VideoView({ darkMode }: PropType) {
   const [videoInformation] = useState({
     image: video,
     vidName: "Blue Archive #1 Test test mic test",
-    views: 50000,
+    views: 500,
     date: "17 ธ.ค. 2021",
     like: 500,
     owner: "AileGuz",
@@ -163,9 +164,14 @@ function VideoView({ darkMode }: PropType) {
         <VideoSideCard />
         <VideoSideCard />
       </div>
-      <div className="vid-grid-item comments ">
-        <div className="user-name">
-          ความคิดเห็น {videoInformation.comments.length} รายการ
+      <div className="vid-grid-item comments">
+        <div className="flex-center">
+          <div className="user-name">
+            ความคิดเห็น {videoInformation.comments.length} รายการ
+          </div>
+          <div className="flex-center">
+            <SortIcon /> <span>เรียงตาม</span>
+          </div>
         </div>
         <div className="comment-part">
           <img src={profile} alt="user_comment" className="user-profile" />
