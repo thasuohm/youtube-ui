@@ -34,11 +34,17 @@ function VideoView({ darkMode }: PropType) {
     videoLength: "10:12",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti illo accusantium ex, reiciendis quisquam. Quae, amet. Fugit ratione iure, modi quae omnis perferendis voluptates esse laboriosam repellat sunt impedit cupiditate! Animi molestias asperiores vero! Sunt, exercitationem voluptatem hic nobis ad adipisci quia consequuntur, quo laboriosam incidunt, dolorem quod sint vero corporis omnis! Rerum dicta nisi, nostrum at quos ullam eius? Est quasi blanditiis, enim pariatur cum modi, saepe quidem voluptatem in alias nemo eligendi similique laboriosam nam necessitatibus, vel repudiandae omnis culpa ut aspernatur natus distinctio optio! Vitae assumenda, corrupti aperiam ab expedita nulla voluptas repellendus. Hic, laborum laboriosam.",
+    comments: [
+      { user: "Test", comment: "Pretty Cool", timePass: "1 นาทีที่แล้ว" },
+      { user: "Testa", comment: "So good", timePass: "2 นาทีที่แล้ว" },
+      { user: "Testas", comment: "Very fun", timePass: "3 นาทีที่แล้ว" },
+      { user: "Testo", comment: "Pretty Good", timePass: "4 นาทีที่แล้ว" },
+    ],
   });
 
   return (
     <div className="video-page-container">
-      <div className="video">
+      <div className="vid-grid-item video">
         <img
           src={video}
           alt="videoClip"
@@ -64,7 +70,7 @@ function VideoView({ darkMode }: PropType) {
         </div>
       </div>
 
-      <div className="video-info">
+      <div className="vid-grid-item  video-info">
         <div className="video-title">{videoInformation.vidName}</div>
         <div className="video-info1">
           <div className="font-gray ">
@@ -89,19 +95,15 @@ function VideoView({ darkMode }: PropType) {
         <div className="video-description">
           <div className="video-info2">
             <div className="video-owner">
-              <img
-                src={profile}
-                alt="profileOwner"
-                className="video-owner-image"
-              />
+              <img src={profile} alt="profileOwner" className="user-profile" />
               <div className="video-owner-name">
-                <div> AileGuz</div>
+                <div className="user-name"> AileGuz</div>
                 <div className="font-gray font-min">
                   {" "}
                   ผู้ติดตาม {videoInformation.subscriber} คน
                 </div>
                 <div className="  font-min video-description-container">
-                  {isShowDescription ? (
+                  {!isShowDescription ? (
                     <>
                       {videoInformation.description.slice(0, 30)}
                       <div
@@ -154,12 +156,40 @@ function VideoView({ darkMode }: PropType) {
         </div>
       </div>
 
-      <div className="other-video">
+      <div className="vid-grid-item other-video">
         <VideoSideCard />
         <VideoSideCard />
         <VideoSideCard />
         <VideoSideCard />
         <VideoSideCard />
+      </div>
+      <div className="vid-grid-item comments ">
+        <div className="user-name">
+          ความคิดเห็น {videoInformation.comments.length} รายการ
+        </div>
+        <div className="comment-part">
+          <img src={profile} alt="user_comment" className="user-profile" />
+          <span>
+            <input
+              placeholder="เพิ่มความคิดเห็นสาธารณะ"
+              className={`${
+                darkMode ? "comment-input dark-mode-font" : "comment-input"
+              }`}
+            />
+          </span>
+        </div>
+        {videoInformation.comments.map((comment) => {
+          return (
+            <div className="comment">
+              <img src={profile} alt="user_comment" className="user-profile" />
+              <div>
+                <span className="user-name">{comment.user}</span>
+                <span className="font-gray font-min">{comment.timePass}</span>
+                <div>{comment.comment}</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

@@ -1,33 +1,47 @@
 .video-page-container {
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-areas:
+    "video"
+    "info"
+    "other"
+    "comments";
+  grid-auto-columns: 1fr;
+  gap: 1.5em;
   justify-items: center;
-
   padding-bottom: 10rem;
   margin-top: 4rem;
 }
 
+.vid-grid-item:nth-child(1) {
+  grid-area: video;
+}
+.vid-grid-item:nth-child(2) {
+  grid-area: info;
+}
+
+.vid-grid-item:nth-child(3) {
+  grid-area: other;
+}
+
+.vid-grid-item:nth-child(4) {
+  grid-area: comments;
+}
+
 @media (min-width: 1024px) {
   .video-page-container {
-    grid-template-columns: 70% 30%;
-    justify-items: right;
+    grid-template-areas:
+      "video video video"
+      "info info other"
+      "comments comments other";
   }
 }
 .video {
-  grid-column: 1;
   background-color: black;
   width: 100%;
   display: inline-flex;
   justify-content: center;
   margin-bottom: 1.5rem;
-
   position: relative;
-}
-
-@media (min-width: 1024px) {
-  .video {
-    grid-column: 1/3;
-  }
 }
 
 .video-config-container {
@@ -81,7 +95,6 @@
 }
 
 .video-info {
-  margin-top: var(--rem-lit);
   width: 90%;
 }
 
@@ -148,14 +161,13 @@
 }
 
 .other-video {
-  margin-top: var(--rem-lit);
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-items: left;
 }
 
-.video-owner-image {
+.user-profile {
   border-radius: 100%;
   max-width: 3rem;
   max-height: 3rem;
@@ -202,4 +214,57 @@
 
 .subscribe-button:hover {
   cursor: pointer;
+}
+
+.user-name {
+  font-weight: var(--f-m);
+  margin-right: 0.5rem;
+}
+
+.comments {
+  width: 100%;
+}
+
+.comments > div {
+  margin-left: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .comments > div {
+    margin-left: 3.5rem;
+  }
+}
+
+.comment {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.comment-input {
+  border-width: 0 0 1px 0;
+  background-color: transparent;
+  font-size: 1rem;
+  margin-left: 1rem;
+  width: 100%;
+}
+
+.comment-part {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 85%;
+}
+
+.comment-part > * {
+  width: 100%;
+}
+
+.comment-input:focus {
+  outline: none;
+}
+
+.dark-mode-font {
+  color: white;
 }
