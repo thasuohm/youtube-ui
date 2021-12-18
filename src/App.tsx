@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 
 import "./App.css";
@@ -10,6 +10,16 @@ function App() {
   function changeToDarkMode(mode: Boolean) {
     setDarkMode(mode);
   }
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode-background");
+      return;
+    } else {
+      document.body.classList.remove("dark-mode-background");
+    }
+    return () => {};
+  }, [darkMode]);
 
   return (
     <div

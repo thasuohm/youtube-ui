@@ -1,29 +1,96 @@
 .video-page-container {
   display: grid;
-  grid-template-columns: 70% 30%;
-  justify-items: right;
+  grid-template-columns: 100%;
+  justify-items: center;
+
+  padding-bottom: 10rem;
+  margin-top: 4rem;
 }
 
+@media (min-width: 1024px) {
+  .video-page-container {
+    grid-template-columns: 70% 30%;
+    justify-items: right;
+  }
+}
 .video {
-  grid-column: 1/3;
+  grid-column: 1;
   background-color: black;
   width: 100%;
   display: inline-flex;
   justify-content: center;
-  margin-bottom: 20px;
-  user-select: none;
+  margin-bottom: 1.5rem;
+
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .video {
+    grid-column: 1/3;
+  }
+}
+
+.video-config-container {
+  width: 100%;
+  padding-bottom: 0.3rem;
+  position: absolute;
+  color: var(--white);
+  bottom: 0;
+  box-shadow: inset 0 -20px 20px 0 rgba(12, 12, 12, 0.5);
+  transition: 0.25s;
+  opacity: 0;
+}
+
+.video-config {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.video:hover .video-config-container {
+  opacity: 1;
+}
+
+.video-progress {
+  margin: 0 auto;
+  max-width: 99%;
+  width: 100%;
+  background-color: var(--dark-gray);
+  height: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.video-progress-current {
+  --width: 33%;
+  height: 100%;
+  width: var(--width);
+  background-color: var(--red);
+}
+
+.video-config > div {
+  display: flex;
+  flex-direction: row;
+}
+
+.video-config > div > * {
+  margin: 0 5px;
+}
+.video-config > div > *:hover {
+  cursor: pointer;
 }
 
 .video-info {
+  margin-top: var(--rem-lit);
   width: 90%;
 }
 
 :root {
   --max-size-vid: 100%;
 }
-@media (min-width: 800px) {
+@media (min-width: 1024px) {
   :root {
-    --max-size-vid: 82rem;
+    --max-size-vid: 75rem;
   }
 }
 
@@ -42,7 +109,7 @@
   margin-top: 1rem;
   margin-right: 1rem;
   border: solid var(--gray-dark-theme);
-  padding-bottom: 20px;
+  padding-bottom: 1.5rem;
   border-width: 0 0 1px 0;
 }
 
@@ -55,7 +122,8 @@
 }
 
 .video-description-container {
-  width: 50rem;
+  max-width: 40rem;
+  width: 100%;
 }
 
 .video-like {
@@ -80,9 +148,9 @@
 }
 
 .other-video {
+  margin-top: var(--rem-lit);
   width: 100%;
   display: flex;
-
   flex-direction: column;
   justify-items: left;
 }

@@ -8,6 +8,12 @@ import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import VideoSideCard from "./VideoSideCard";
 import profile from "../images/profile.jpg";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import PauseIcon from "@mui/icons-material/Pause";
+import SkipNextIcon from "@mui/icons-material/SkipNext";
+import SettingsIcon from "@mui/icons-material/Settings";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
+import CropSquareIcon from "@mui/icons-material/CropSquare";
+import VolumeDownIcon from "@mui/icons-material/VolumeDown";
 
 type PropType = {
   darkMode: Boolean;
@@ -16,7 +22,7 @@ type PropType = {
 function VideoView({ darkMode }: PropType) {
   const [isSubScribe, setIsSubScribe] = useState(false);
   const [isShowDescription, setIsShowDescription] = useState(false);
-  const [large, setLarge] = useState(true);
+  const [large] = useState(true);
   const [videoInformation] = useState({
     image: video,
     vidName: "Blue Archive #1 Test test mic test",
@@ -25,6 +31,7 @@ function VideoView({ darkMode }: PropType) {
     like: 500,
     owner: "AileGuz",
     subscriber: "1 ล้าน",
+    videoLength: "10:12",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id deleniti illo accusantium ex, reiciendis quisquam. Quae, amet. Fugit ratione iure, modi quae omnis perferendis voluptates esse laboriosam repellat sunt impedit cupiditate! Animi molestias asperiores vero! Sunt, exercitationem voluptatem hic nobis ad adipisci quia consequuntur, quo laboriosam incidunt, dolorem quod sint vero corporis omnis! Rerum dicta nisi, nostrum at quos ullam eius? Est quasi blanditiis, enim pariatur cum modi, saepe quidem voluptatem in alias nemo eligendi similique laboriosam nam necessitatibus, vel repudiandae omnis culpa ut aspernatur natus distinctio optio! Vitae assumenda, corrupti aperiam ab expedita nulla voluptas repellendus. Hic, laborum laboriosam.",
   });
@@ -37,6 +44,24 @@ function VideoView({ darkMode }: PropType) {
           alt="videoClip"
           className={`${large ? "large-size-video" : "normal-size-video"}`}
         />
+        <div className="video-config-container">
+          <div className="video-progress">
+            <div className="video-progress-current"></div>
+          </div>
+          <div className="video-config">
+            <div>
+              <PauseIcon />
+              <SkipNextIcon />
+              <VolumeDownIcon />
+              <div>{videoInformation.videoLength}</div>
+            </div>
+            <div>
+              <SettingsIcon />
+              <CropSquareIcon />
+              <FullscreenIcon />
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="video-info">

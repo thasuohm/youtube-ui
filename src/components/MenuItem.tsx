@@ -14,7 +14,7 @@ function MenuItem({ title, changeToDarkMode }: PropType) {
       {showInside ? (
         <>
           <div onClick={() => setShowInside(false)} className="menu-header">
-            <ArrowBackIcon /> <span>ธีมของแอป</span>{" "}
+            <ArrowBackIcon /> <span>{title}</span>{" "}
           </div>
 
           <div onClick={() => changeToDarkMode(true)}>ธีมมืด </div>
