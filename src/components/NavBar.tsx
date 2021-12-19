@@ -54,7 +54,10 @@ const NavBar = ({ darkMode, changeToDarkMode }: PropType) => {
       {!isShowMobileSearch ? (
         <div>
           <MenuIcon className="navbar-icons" />
-          <div className="youtube-logo">
+          <div
+            className="youtube-logo hover-pointer bottom-tool-tip"
+            tool-tip="หน้าแรกของ YouTube"
+          >
             <img
               alt="youtubeLogo"
               src="https://www.gstatic.com/youtube/img/branding/favicon/favicon_144x144.png"
@@ -73,10 +76,9 @@ const NavBar = ({ darkMode, changeToDarkMode }: PropType) => {
         />
       )}
       <div className="search">
-        {(width >= 1024 || isShowMobileSearch) ? (
+        {width >= 1024 || isShowMobileSearch ? (
           <>
             <input placeholder="ค้นหา" className="searchBox" />
-
             <SearchIcon
               className={`${
                 darkMode ? "search-icon dark-mode-search-icon" : "search-icon"
@@ -93,19 +95,29 @@ const NavBar = ({ darkMode, changeToDarkMode }: PropType) => {
             className="navbar-icons"
           />
         )}
-
-        <MicOutlinedIcon
-          className={`${
-            darkMode
-              ? "navbar-icons circle-icon dark-mode-circle-icon"
-              : "navbar-icons circle-icon"
-          }`}
-        />
-        { !isShowMobileSearch && (
+        <div
+          className="bottom-tool-tip l-icons-group"
+          tool-tip="ค้นหาด้วยเสียง"
+        >
+          <MicOutlinedIcon
+            className={`${
+              darkMode
+                ? "navbar-icons circle-icon dark-mode-circle-icon "
+                : "navbar-icons circle-icon "
+            }`}
+          />
+        </div>
+        {!isShowMobileSearch && (
           <>
-            <VideoCallOutlinedIcon className="navbar-icons l-icons-group" />
-            <AppsOutlinedIcon className="navbar-icons" />
-            <NotificationsNoneOutlinedIcon className="navbar-icons" />
+            <div className="bottom-tool-tip" tool-tip="สร้าง">
+              <VideoCallOutlinedIcon className="navbar-icons " />
+            </div>
+            <div className="bottom-tool-tip" tool-tip="แอป Youtube">
+              <AppsOutlinedIcon className="navbar-icons" />
+            </div>
+            <div className="bottom-tool-tip" tool-tip="การแจ้งเตือน">
+              <NotificationsNoneOutlinedIcon className="navbar-icons" />
+            </div>
             <AccountCircleIcon
               className="navbar-icons"
               onClick={() => setShowMenu(!showMenu)}

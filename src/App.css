@@ -1,6 +1,7 @@
 :root {
   --f-title: 1.5rem;
-  --f-normal: 1rem;
+  --f-tiny: 0.75rem;
+  --f-normal: 0.9rem;
   --f-m: 600;
   --content-width: 80%;
   --white: white;
@@ -28,4 +29,18 @@
 
 .hover-pointer:hover {
   cursor: pointer;
+}
+
+.font-mini {
+  font-size: var(--f-tiny);
+}
+
+.flex-left-align-center {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.inside-marginXY-mini > * {
+  margin: 0.3rem;
 }

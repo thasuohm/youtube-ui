@@ -11,7 +11,7 @@
   top: 0;
   padding: 10px 0;
   color: var(--gray-dark-theme);
-  background-color: white;
+  background-color: var(--white);
   border: solid whitesmoke;
   border-width: 0 0 1px 0;
   opacity: var(--o-lit);
@@ -30,7 +30,7 @@
 }
 
 .dark-mode-nav * {
-  color: white;
+  color: var(--white);
 }
 
 .navbar-container .search {
@@ -130,20 +130,21 @@
   }
 
   .l-icons-group {
-    margin-left: 20rem;
+    margin-right: 20rem;
   }
 }
 
 .menu-profile {
   position: absolute;
   width: 18.5rem;
-  background: white;
+  background: var(--white);
   border-radius: 5px;
   top: 4rem;
   right: 1rem;
   padding: 10px 0;
   overflow: hidden;
   opacity: var(--o-lit);
+  box-shadow: 0 0 2px var(--black-dark-theme);
 }
 
 .menu-profile-dark-mode {
@@ -170,4 +171,21 @@
 }
 .menu-header > span {
   margin-left: 1rem;
+}
+.bottom-tool-tip[tool-tip] {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.bottom-tool-tip:hover::after {
+  z-index: 2;
+  content: attr(tool-tip);
+  display: flex;
+  position: absolute;
+  top: 3.5rem;
+  width: max-content;
+  background-color: var(--gray-dark-theme);
+  color: var(--white);
+  padding: 0.2rem 0.4rem;
+  font-size: var(--f-tiny);
 }

@@ -38,7 +38,7 @@
 
 .video-preview-icons > * {
   margin: 0.1rem 0;
-  color: white;
+  color: var(--white);
   background-color: black;
   border: solid black;
   border-radius: 2px;
@@ -46,7 +46,7 @@
 
 .video-preview-length {
   position: absolute;
-  color: white;
+  color: var(--white);
   font-weight: var(--f-m);
   font-size: 0.8rem;
   bottom: 0.25rem;
@@ -55,4 +55,12 @@
   background-color: black;
   border: solid black;
   padding: 0 0.15rem;
+}
+
+.hover-show-icon {
+  opacity: 0;
+}
+
+.video-side-card:hover .hover-show-icon {
+  opacity: 1;
 }
